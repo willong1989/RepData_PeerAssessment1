@@ -7,9 +7,14 @@ author: "Huilong"
 date: "April 15, 2018"
 ---
 
+```r
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(dplyr)
+```
+
 
 ## Loading and preprocessing the data
-
 
 
 
@@ -24,25 +29,8 @@ unzip(zipfile = "Data.zip")
 
 act<-read.csv("activity.csv", header=T)
 
-library(dplyr)
 ```
 
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
 
 ## What is mean total number of steps taken per day?
 
