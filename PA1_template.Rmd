@@ -12,10 +12,13 @@ date: "April 15, 2018"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(dplyr)
+library(lattice)
 ```
 
 ```{r}
-setwd("C:/Users/huilong/Documents/DataScience/DS5")
+setwd("C:/Users/u041383/Documents/Development/Data Science Course/5_Reproduce Approach")
 path=getwd()
 url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
 if (!file.exists(path)) {dir.create(path)}
@@ -25,7 +28,6 @@ unzip(zipfile = "Data.zip")
 
 act<-read.csv("activity.csv", header=T)
 
-library(dplyr)
 ```
 
 ## What is mean total number of steps taken per day?
@@ -80,7 +82,6 @@ str(act_wk)
 
 act_wk2 <- aggregate(steps ~ interval + day, act_wk, mean)
 
-library(lattice)
 
 xyplot(steps ~ interval | day, data=act_wk2, layout=c(1,2), type="l", col="red", main="Average steps per period by weekend/weekday", 
      xlab="Interval", ylab="Avg. steps")
